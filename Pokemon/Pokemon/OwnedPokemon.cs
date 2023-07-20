@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Pokemon.Pokemon
 {
-    public class OwnedPokemon : ActivePokemon
+    public class OwnedPokemon
     {
         public OwnedPokemon() {
-            isCatchable = false;
+
         }
 
         public ActivePokemon activePokemon { get; set; }
@@ -18,12 +18,12 @@ namespace Pokemon.Pokemon
         public long expForCurrentLevel { get; set; }
         public long expForNextLevel { get; set; }
 
-        public void gainExp(long expGained)
+        public void GainExp(long expGained)
         {
             exp += expGained;
             if (exp > expForNextLevel)
             {
-                levelUp();
+                LevelUp();
                 
                 // How would we set experience until next level
                 // Experience - Experience for current level ?
@@ -31,7 +31,7 @@ namespace Pokemon.Pokemon
             }
         }
 
-        private void levelUp()
+        private void LevelUp()
         {
             activePokemon.level += 1;
         }
