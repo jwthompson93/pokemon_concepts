@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace PokemonBag.Bag.Types.Subtype
 {
-    public abstract class HoldEffectItem
+    public interface IUsableItem
     {
-        public abstract void UseHoldEffect();
+        public void UseItem();
     }
 }
