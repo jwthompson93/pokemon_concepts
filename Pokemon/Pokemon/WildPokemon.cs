@@ -8,19 +8,19 @@ namespace Pokemon.Pokemon
 {
     public class WildPokemon
     {
-        Random random = new Random();
-        public ActivePokemon activePokemon;
+        private Random _random = new Random();
+        public ActivePokemon ActivePokemon;
 
         public WildPokemon(int pokemonId, int level) {
-            activePokemon = new ActivePokemon(
+            ActivePokemon = new ActivePokemon(
                 pokemonId,
                 new Stats(
-                    random.Next(0, 31),
-                    random.Next(0, 31),
-                    random.Next(0, 31),
-                    random.Next(0, 31),
-                    random.Next(0, 31),
-                    random.Next(0, 31)
+                    _random.Next(0, 31),
+                    _random.Next(0, 31),
+                    _random.Next(0, 31),
+                    _random.Next(0, 31),
+                    _random.Next(0, 31),
+                    _random.Next(0, 31)
                 ),
                 new Stats(0, 0, 0, 0, 0, 0),
                 level,

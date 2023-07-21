@@ -8,27 +8,27 @@ namespace Pokemon.Pokemon
 {
     public class BasePokemon
     {
-        public int pokedexNo;
-        public string name;
+        public int PokedexNo;
+        public string Name;
 
-        public Stats baseStats;
-        public Stats evYield;
+        public Stats BaseStats;
+        public Stats EvYield;
 
-        public float height;
-        public float weight;
+        public float Height;
+        public float Weight;
 
-        public int catchRate;
+        public int CatchRate;
 
 
         public BasePokemon() { }
         public BasePokemon(int pokedexNo, string name, Stats baseStats, Stats evYield, float height, float weight, int catchRate) {
-            this.pokedexNo = pokedexNo;
-            this.name = name;
-            this.baseStats = baseStats;
-            this.evYield = evYield;
-            this.height = height;
-            this.weight = weight;
-            this.catchRate = catchRate;
+            this.PokedexNo = pokedexNo;
+            this.Name = name;
+            this.BaseStats = baseStats;
+            this.EvYield = evYield;
+            this.Height = height;
+            this.Weight = weight;
+            this.CatchRate = catchRate;
         }
     }
 }

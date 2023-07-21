@@ -11,19 +11,19 @@ namespace Pokemon.Pokemon
 
         public ActivePokemon(int pokemonId, Stats initialIvs, Stats evs, int level, bool isCatchable)
         {
-            this.basePokemonStats = PokemonConstants.getInstance().GetPokemon(pokemonId);
-            this.initialIvs = initialIvs;
-            this.evs = evs;
-            this.level = level;
-            this.isCatchable = isCatchable;
+            this.BasePokemonStats = PokemonConstants.GetInstance().GetPokemon(pokemonId);
+            this.InitialIvs = initialIvs;
+            this.Evs = evs;
+            this.Level = level;
+            this.IsCatchable = isCatchable;
         }
 
-        public BasePokemon basePokemonStats { get; protected set; }
+        public BasePokemon BasePokemonStats { get; protected set; }
 
-        public Stats initialIvs { get; }
-        public Stats evs { get; set; }
-        public int level { get; set; }
+        public Stats InitialIvs { get; }
+        public Stats Evs { get; set; }
+        public int Level { get; set; }
 
-        public bool isCatchable { get; protected set; }
+        public bool IsCatchable { get; protected set; }
     }
 }

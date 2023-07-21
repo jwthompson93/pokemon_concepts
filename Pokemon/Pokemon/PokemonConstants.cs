@@ -8,51 +8,51 @@ namespace Pokemon.Pokemon
 {
     public class PokemonConstants
     {
-        public static Dictionary<int, BasePokemon> pokemon;
-        private static PokemonConstants instance;
+        public static Dictionary<int, BasePokemon> Pokemon;
+        private static PokemonConstants _instance;
 
-        public static PokemonConstants getInstance()
+        public static PokemonConstants GetInstance()
         {
-            if(instance == null)
+            if(_instance == null)
             {
-                instance = new PokemonConstants();
+                _instance = new PokemonConstants();
             }
 
-            return instance;
+            return _instance;
         }
 
         private PokemonConstants()
         {
-            pokemon = new Dictionary<int, BasePokemon>();
-            pokemon.Add(1, new BasePokemon {
-                name = "Bulbasaur",
-                pokedexNo = 1,
-                baseStats = new Stats
+            Pokemon = new Dictionary<int, BasePokemon>();
+            Pokemon.Add(1, new BasePokemon {
+                Name = "Bulbasaur",
+                PokedexNo = 1,
+                BaseStats = new Stats
                 {
-                    hp = 45,
-                    atk = 49,
-                    def = 49,
-                    spatk = 65,
-                    spdef = 65,
-                    spd = 45
+                    Hp = 45,
+                    Atk = 49,
+                    Def = 49,
+                    Spatk = 65,
+                    Spdef = 65,
+                    Spd = 45
                 },
-                evYield = new Stats { 
-                    hp = 0,
-                    atk = 0,
-                    def = 0,
-                    spatk = 1,
-                    spdef = 0,
-                    spd = 0
+                EvYield = new Stats { 
+                    Hp = 0,
+                    Atk = 0,
+                    Def = 0,
+                    Spatk = 1,
+                    Spdef = 0,
+                    Spd = 0
                 },
-                height = 0.7f,
-                weight = 6.9f,
-                catchRate = 45,
+                Height = 0.7f,
+                Weight = 6.9f,
+                CatchRate = 45,
             });
         }
 
         public BasePokemon GetPokemon(int id)
         {
-            return pokemon[id];
+            return Pokemon[id];
         }
     }
 }

@@ -12,28 +12,28 @@ namespace Pokemon.Pokemon
 
         }
 
-        public ActivePokemon activePokemon { get; set; }
-        public Stats currentIvs { get; set; }
-        public long exp { get; set; }
-        public long expForCurrentLevel { get; set; }
-        public long expForNextLevel { get; set; }
+        public ActivePokemon ActivePokemon { get; set; }
+        public Stats CurrentIvs { get; set; }
+        public long Exp { get; set; }
+        public long ExpForCurrentLevel { get; set; }
+        public long ExpForNextLevel { get; set; }
 
         public void GainExp(long expGained)
         {
-            exp += expGained;
-            if (exp > expForNextLevel)
+            Exp += expGained;
+            if (Exp > ExpForNextLevel)
             {
                 LevelUp();
                 
                 // How would we set experience until next level
                 // Experience - Experience for current level ?
-                expForNextLevel = exp;
+                ExpForNextLevel = Exp;
             }
         }
 
         private void LevelUp()
         {
-            activePokemon.level += 1;
+            ActivePokemon.Level += 1;
         }
     }
 }
