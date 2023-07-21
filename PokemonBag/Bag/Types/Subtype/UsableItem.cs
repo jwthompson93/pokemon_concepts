@@ -8,6 +8,6 @@ namespace PokemonBag.Bag.Types.Subtype
 {
     public interface UsableItem
     {
-        public void useItem();
+        public void UseItem();
     }
 }

@@ -13,7 +13,7 @@ namespace PokemonBag.Bag.Types
         {
         }
 
-        public void useItem()
+        public void UseItem()
         {
             throw new NotImplementedException();
         }

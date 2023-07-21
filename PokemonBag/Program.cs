@@ -3,12 +3,12 @@ using PokemonBag.Bag;
 using PokemonBag.Bag.Types;
 
 BagSlots bagSlots = new BagSlots();
-bagSlots.printBag();
+bagSlots.PrintBag();
 
-bagSlots.addItemToBag(3);
+bagSlots.AddItemToBag(3);
 
-bagSlots.printBag();
+bagSlots.PrintBag();
 
-bagSlots.addItemToBag(11);
+bagSlots.AddItemToBag(11);
 
-bagSlots.printBag();
+bagSlots.PrintBag();
