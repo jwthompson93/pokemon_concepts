@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Pokemon.Pokemon.Types;
 
-namespace Pokemon.Pokemon
+namespace Pokemon.Pokemon.Constants
 {
     public class PokemonConstants
     {
@@ -13,7 +9,7 @@ namespace Pokemon.Pokemon
 
         public static PokemonConstants GetInstance()
         {
-            if(_instance == null)
+            if (_instance == null)
             {
                 _instance = new PokemonConstants();
             }
@@ -24,7 +20,8 @@ namespace Pokemon.Pokemon
         private PokemonConstants()
         {
             Pokemon = new Dictionary<int, BasePokemon>();
-            Pokemon.Add(1, new BasePokemon {
+            Pokemon.Add(1, new BasePokemon
+            {
                 Name = "Bulbasaur",
                 PokedexNo = 1,
                 BaseStats = new Stats
@@ -36,7 +33,8 @@ namespace Pokemon.Pokemon
                     Spdef = 65,
                     Spd = 45
                 },
-                EvYield = new Stats { 
+                EvYield = new Stats
+                {
                     Hp = 0,
                     Atk = 0,
                     Def = 0,

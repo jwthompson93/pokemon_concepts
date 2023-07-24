@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Pokemon.Pokemon.Constants;
+using Pokemon.Pokemon.Types;
 
 namespace Pokemon.Pokemon
 {
-    public class OwnedPokemon
+    public class PlayerOwnedPokemon
     {
-        public OwnedPokemon() {
-
+        public PlayerOwnedPokemon(ActivePokemon activePokemon) {
+            this.ActivePokemon = activePokemon;
+            this.ActivePokemon.IsCatchable = false;
         }
 
         public ActivePokemon ActivePokemon { get; set; }

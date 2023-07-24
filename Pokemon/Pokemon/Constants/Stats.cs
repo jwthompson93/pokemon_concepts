@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pokemon.Pokemon
+﻿namespace Pokemon.Pokemon.Constants
 {
     public struct Stats
     {
@@ -17,12 +11,12 @@ namespace Pokemon.Pokemon
 
         public Stats(int hp, int atk, int def, int spatk, int spdef, int spd)
         {
-            this.Hp = hp;
-            this.Atk = atk;
-            this.Def = def;
-            this.Spatk = spatk;
-            this.Spdef = spdef;
-            this.Spd = spd;
+            Hp = hp;
+            Atk = atk;
+            Def = def;
+            Spatk = spatk;
+            Spdef = spdef;
+            Spd = spd;
         }
     }
 }
