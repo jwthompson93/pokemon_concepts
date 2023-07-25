@@ -21,5 +21,14 @@ namespace Pokemon.Pokemon.Types
         public int Level { get; set; }
 
         public bool IsCatchable { get; internal set; }
+
+        public string PrintPokemon()
+        {
+            return this.BasePokemonStats.PrintPokemon() +
+                $"Initial IVs:\t{InitialIvs.PrintStats()}\n" +
+                $"EVs:\t{Evs.PrintStats()}\n" +
+                $"Level:\t{Level}\n" +
+                $"Is Catchable?:\t{IsCatchable}\n";
+        }
     }
 }

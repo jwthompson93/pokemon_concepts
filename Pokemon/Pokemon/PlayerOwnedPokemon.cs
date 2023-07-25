@@ -33,5 +33,15 @@ namespace Pokemon.Pokemon
         {
             ActivePokemon.Level += 1;
         }
+
+        public string PrintPokemon()
+        {
+            return
+                this.ActivePokemon.PrintPokemon() +
+                $"Current IVs\t{this.CurrentIvs}\n" +
+                $"Total Exp\t{this.Exp}\n" +
+                $"Exp for Current Level\t{this.ExpForCurrentLevel}\n" +
+                $"Exp until Next Level\t{this.ExpForNextLevel}\n";
+        }
     }
 }

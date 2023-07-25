@@ -18,5 +18,16 @@
             Spdef = spdef;
             Spd = spd;
         }
+
+        public string PrintStats()
+        {
+            return 
+                $"HP\t{Hp}\t" +
+                $"Attack\t{Atk}\t" +
+                $"Defence\t{Def}\t" +
+                $"Special Attack\t{Spatk}\t" +
+                $"Special Defence\t{Spdef}\t" +
+                $"Speed\t{Spd}\t";
+        }
     }
 }

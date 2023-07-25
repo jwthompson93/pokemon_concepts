@@ -27,5 +27,17 @@ namespace Pokemon.Pokemon.Types
             Weight = weight;
             CatchRate = catchRate;
         }
+
+        public string PrintPokemon()
+        {
+            return
+                $"Name:\t{this.Name}\n" +
+                $"Pokedex No.:\t{this.PokedexNo}\n" +
+                $"Base Stats:\t{this.BaseStats.PrintStats()}\n" +
+                $"EV Yield:\t{this.EvYield.PrintStats()}\n" +
+                $"Height:\t{this.Height}\n" +
+                $"Weight:\t{this.Weight}\n" +
+                $"Catch Rate:\t{this.CatchRate}\n";
+        }
     }
 }
