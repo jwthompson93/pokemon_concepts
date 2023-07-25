@@ -13,12 +13,10 @@ namespace Pokemon.Pokemon
         public ActivePokemon ActivePokemon { get; set; }
         public Stats CurrentIvs { get; set; }
         public long Exp { get; set; }
-        public long ExpForCurrentLevel { get; set; }
-        public long ExpForNextLevel { get; set; }
 
         public void GainExp(long expGained)
         {
-            Exp += expGained;
+            /*Exp += expGained;
             if (Exp > ExpForNextLevel)
             {
                 LevelUp();
@@ -26,7 +24,7 @@ namespace Pokemon.Pokemon
                 // How would we set experience until next level
                 // Experience - Experience for current level ?
                 ExpForNextLevel = Exp;
-            }
+            }*/
         }
 
         private void LevelUp()
@@ -39,9 +37,9 @@ namespace Pokemon.Pokemon
             return
                 this.ActivePokemon.PrintPokemon() +
                 $"Current IVs\t{this.CurrentIvs}\n" +
-                $"Total Exp\t{this.Exp}\n" +
+                $"Total Exp\t{this.Exp}\n"/* +
                 $"Exp for Current Level\t{this.ExpForCurrentLevel}\n" +
-                $"Exp until Next Level\t{this.ExpForNextLevel}\n";
+                $"Exp until Next Level\t{this.ExpForNextLevel}\n"*/;
         }
     }
 }
