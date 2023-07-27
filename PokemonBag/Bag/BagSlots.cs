@@ -1,4 +1,5 @@
-﻿using PokemonBag.Bag.Types;
+﻿using Item.Constants;
+using Item.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,64 +10,53 @@ namespace PokemonBag.Bag
 {
     public class BagSlots
     {
-        private static Dictionary<int, Item> items = new Dictionary<int, Item>
-        {
-            { 1, new GeneralItem(1, "Rare Candy", "") },
-            { 2, new GeneralItem(2, "Magmariser", "")},
-            { 3, new GeneralItem(3, "Destiny Knot", "") },
-            { 11, new MedicineItem(11, "Potion", "") },
-            { 12, new MedicineItem(12, "Full Heal", "") },
-            { 21, new KeyItem(21, "Bicycle", "") },
-            { 22, new KeyItem(22, "S.S. Ticket", "") },
-            { 101, new TmHmItem(101, "TM36 Selfdestruct", "") },
-            { 102, new TmHmItem(102, "TM08 Thunderbolt", "") },
 
-        };
-
-        private Dictionary<int, int> keyItems;
-        private Dictionary<int, int> medicineItems;
-        private Dictionary<int, int> generalItems;
-        private Dictionary<int, int> tmHmItems;
+        private Dictionary<int, int> _keyItems;
+        private Dictionary<int, int> _medicineItems;
+        private Dictionary<int, int> _generalItems;
+        private Dictionary<int, int> _tmHmItems;
 
         public BagSlots()
         {
-            keyItems = new Dictionary<int, int>();
-            keyItems.Add(21, 1);
-            keyItems.Add(22, 1);
+            _keyItems = new Dictionary<int, int>();
+            _keyItems.Add(21, 1);
+            _keyItems.Add(22, 1);
 
-            medicineItems = new Dictionary<int, int>();
-            medicineItems.Add(11, 3);
-            medicineItems.Add(12, 2);
+            _medicineItems = new Dictionary<int, int>();
+            _medicineItems.Add(11, 3);
+            _medicineItems.Add(12, 2);
 
-            generalItems = new Dictionary<int, int>();
-            generalItems.Add(1, 3);
-            generalItems.Add(2, 1);
+            _generalItems = new Dictionary<int, int>();
+            _generalItems.Add(1, 3);
+            _generalItems.Add(2, 1);
 
-            tmHmItems = new Dictionary<int, int>();
-            tmHmItems.Add(101, 2);
-            tmHmItems.Add(102, 1);
+            _tmHmItems = new Dictionary<int, int>();
+            _tmHmItems.Add(101, 2);
+            _tmHmItems.Add(102, 1);
         }
 
-        public void addItemToBag(int itemId)
+        public void AddItemToBag(int itemId)
         {
-            if (items[itemId] is KeyItem) {
-                checkIfBagContainsItem(itemId, ref keyItems);
+            AItem item = ItemConstants.GetInstance().getItem(itemId);
+
+            if (item is KeyItem) {
+                CheckIfBagContainsItem(itemId, ref _keyItems);
             }
-            else if (items[itemId] is MedicineItem)
+            else if (item is MedicineItem)
             {
-                checkIfBagContainsItem(itemId, ref medicineItems);
+                CheckIfBagContainsItem(itemId, ref _medicineItems);
             }
-            else if (items[itemId] is GeneralItem)
+            else if (item is GeneralItem)
             {
-                checkIfBagContainsItem(itemId, ref generalItems);
+                CheckIfBagContainsItem(itemId, ref _generalItems);
             }
-            else if (items[itemId] is TmHmItem)
+            else if (item is TmHmItem)
             {
-                checkIfBagContainsItem(itemId, ref tmHmItems);
+                CheckIfBagContainsItem(itemId, ref _tmHmItems);
             }
         }
 
-        private void checkIfBagContainsItem(int itemId, ref Dictionary<int, int> itemBag) {
+        private void CheckIfBagContainsItem(int itemId, ref Dictionary<int, int> itemBag) {
             if (itemBag.ContainsKey(itemId)) {
                 itemBag[itemId]++;
             }
@@ -76,26 +66,26 @@ namespace PokemonBag.Bag
             }
         }
 
-        public void printBag()
+        public void PrintBag()
         {
             Console.WriteLine("General Items");
-            foreach(int itemId in generalItems.Keys) { 
-                Console.WriteLine("\t {0} \tx{1}", items[itemId].Name, generalItems[itemId]);
+            foreach(int itemId in _generalItems.Keys) { 
+                Console.WriteLine("\t {0} \tx{1}", ItemConstants.GetInstance().getItem(itemId).Name, _generalItems[itemId]);
             }
             Console.WriteLine("Medicine Items");
-            foreach (int itemId in medicineItems.Keys)
+            foreach (int itemId in _medicineItems.Keys)
             {
-                Console.WriteLine("\t {0} \tx{1}", items[itemId].Name, medicineItems[itemId]);
+                Console.WriteLine("\t {0} \tx{1}", ItemConstants.GetInstance().getItem(itemId).Name, _medicineItems[itemId]);
             }
             Console.WriteLine("TM/HM Items");
-            foreach (int itemId in tmHmItems.Keys)
+            foreach (int itemId in _tmHmItems.Keys)
             {
-                Console.WriteLine("\t {0} \tx{1}", items[itemId].Name, tmHmItems[itemId]);
+                Console.WriteLine("\t {0} \tx{1}", ItemConstants.GetInstance().getItem(itemId).Name, _tmHmItems[itemId]);
             }
             Console.WriteLine("Key Items");
-            foreach (int itemId in keyItems.Keys)
+            foreach (int itemId in _keyItems.Keys)
             {
-                Console.WriteLine("\t {0} \tx{1}", items[itemId].Name, keyItems[itemId]);
+                Console.WriteLine("\t {0} \tx{1}", ItemConstants.GetInstance().getItem(itemId).Name, _keyItems[itemId]);
             }
         }
     }
