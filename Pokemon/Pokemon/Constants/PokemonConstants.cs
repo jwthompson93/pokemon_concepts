@@ -23,7 +23,7 @@ namespace Pokemon.Pokemon.Constants
             Pokemon.Add(1, new BasePokemon
             {
                 Name = "Bulbasaur",
-                PokedexNo = 1,
+                Id = 1,
                 BaseStats = new Stats
                 {
                     Hp = 45,
@@ -45,6 +45,7 @@ namespace Pokemon.Pokemon.Constants
                 Height = 0.7f,
                 Weight = 6.9f,
                 CatchRate = 45,
+                GrowthRate = GrowthRate.MEDIUM_SLOW
             });
         }
 

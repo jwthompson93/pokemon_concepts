@@ -8,16 +8,17 @@ namespace Pokemon.Pokemon.Constants
 {
     public class GrowthRateConstants
     {
-        private static GrowthRateConstants instance;
+        private static GrowthRateConstants _instance;
 
         public static GrowthRateConstants GetInstance()
         {
-            if (instance == null)
-                instance = new GrowthRateConstants();
+            if (_instance == null)
+                _instance = new GrowthRateConstants();
 
-            return instance;
+            return _instance;
         }
 
+        // Selects the correct growth rate and calculates the exp based on the level
         public long CalculateGrowthRateUntilNextLevel(int level, GrowthRate growthRate)
         {
             switch (growthRate) {

@@ -8,6 +8,7 @@ namespace Pokemon.Pokemon
         public PlayerOwnedPokemon(ActivePokemon activePokemon) {
             this.ActivePokemon = activePokemon;
             this.ActivePokemon.IsCatchable = false;
+            this.Exp = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(activePokemon.Level, activePokemon.BasePokemon.GrowthRate); ;
         }
 
         public ActivePokemon ActivePokemon { get; set; }
@@ -16,30 +17,27 @@ namespace Pokemon.Pokemon
 
         public void GainExp(long expGained)
         {
-            /*Exp += expGained;
-            if (Exp > ExpForNextLevel)
+            Console.WriteLine($"{ActivePokemon.BasePokemon.Name} gained {expGained} exp");
+            Exp += expGained;
+            while (Exp > GrowthRateConstants.GetInstance()
+                .CalculateGrowthRateUntilNextLevel(ActivePokemon.Level + 1, ActivePokemon.BasePokemon.GrowthRate) && ActivePokemon.Level < 100)
             {
                 LevelUp();
-                
-                // How would we set experience until next level
-                // Experience - Experience for current level ?
-                ExpForNextLevel = Exp;
-            }*/
+            }
         }
 
         private void LevelUp()
         {
             ActivePokemon.Level += 1;
+            Console.WriteLine($"{ActivePokemon.BasePokemon.Name} reached Level {ActivePokemon.Level}");
         }
 
         public string PrintPokemon()
         {
             return
                 this.ActivePokemon.PrintPokemon() +
-                $"Current IVs\t{this.CurrentIvs}\n" +
-                $"Total Exp\t{this.Exp}\n"/* +
-                $"Exp for Current Level\t{this.ExpForCurrentLevel}\n" +
-                $"Exp until Next Level\t{this.ExpForNextLevel}\n"*/;
+                $"Current IVs\t{this.CurrentIvs.PrintStats()}\n" +
+                $"Total Exp\t{this.Exp}\n";
         }
     }
 }

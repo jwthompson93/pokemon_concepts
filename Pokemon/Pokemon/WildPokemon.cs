@@ -24,5 +24,10 @@ namespace Pokemon.Pokemon
                 true
             );
         }
+
+        public string PrintPokemon()
+        {
+            return this.ActivePokemon.PrintPokemon();
+        }
     }
 }
