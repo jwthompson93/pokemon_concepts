@@ -1,13 +1,12 @@
-﻿using PokemonBag.Bag.Types.Subtype;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonBag.Bag.Types
+namespace Item.Types
 {
-    public class GeneralItem : Item
+    public class GeneralItem : AItem
     {
         public GeneralItem(int id, string name, string description) : base(id, name, description)
         {

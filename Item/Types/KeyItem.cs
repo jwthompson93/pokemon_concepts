@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonBag.Bag.Types
+namespace Item.Types
 {
-    public class KeyItem : Item
+    public class KeyItem : AItem
     {
         public KeyItem(int id, string name, string description) : base(id, name, description)
         {
