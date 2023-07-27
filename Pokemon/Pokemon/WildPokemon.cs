@@ -1,16 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Pokemon.Pokemon.Constants;
+using Pokemon.Pokemon.Types;
 
 namespace Pokemon.Pokemon
 {
-    public class WildPokemon : ActivePokemon
+    public class WildPokemon
     {
-        public WildPokemon() { 
-            isCatchable = true;
-            evs = new Stats(0,0,0,0,0,0);
+        private Random _random = new Random();
+        public ActivePokemon ActivePokemon;
+
+        public WildPokemon(int pokemonId, int level) {
+            ActivePokemon = new ActivePokemon(
+                pokemonId,
+                new Stats(
+                    _random.Next(0, 31),
+                    _random.Next(0, 31),
+                    _random.Next(0, 31),
+                    _random.Next(0, 31),
+                    _random.Next(0, 31),
+                    _random.Next(0, 31)
+                ),
+                new Stats(0, 0, 0, 0, 0, 0),
+                level,
+                true
+            );
+        }
+
+        public string PrintPokemon()
+        {
+            return this.ActivePokemon.PrintPokemon();
         }
     }
 }
