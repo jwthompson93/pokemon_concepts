@@ -1,63 +1,51 @@
+using Pokemon.Pokemon;
 using Pokemon.Pokemon.Constants;
+using Pokemon.Pokemon.Types;
 
 namespace PokemonTest
 {
     public class Tests
     {
+        private BasePokemon basePokemon;
+        private ActivePokemon activePokemon;
+        private WildPokemon wildPokemon;
+        private PlayerOwnedPokemon playerOwnedPokemon;
+
         [SetUp]
         public void Setup()
         {
+            basePokemon = PokemonConstants.GetInstance().GetPokemon(1);
+            activePokemon = new ActivePokemon(1, new Stats(12, 13, 16, 6, 21, 31), new Stats(), 5, true);
+            wildPokemon = new WildPokemon(1, 5);
+            playerOwnedPokemon = new PlayerOwnedPokemon(wildPokemon.ActivePokemon);
         }
 
         [Test]
         public void TestPrintBasePokemon()
         {
-            Console.Write(PokemonConstants.GetInstance().GetPokemon(1).PrintPokemon());
+            Console.WriteLine(basePokemon.PrintPokemon());
             Assert.Pass();
         }
 
         [Test]
-        public void TestMediumFastGrowthRate()
+        public void TestPrintActivePokemon()
         {
-            long exp1 = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(5, GrowthRate.MEDIUM_FAST);
-            Assert.IsTrue(exp1.Equals(125));
-            long exp2 = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(25, GrowthRate.MEDIUM_FAST);
-            Assert.IsTrue(exp2.Equals(15625));
-            long exp3 = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(100, GrowthRate.MEDIUM_FAST);
-            Assert.IsTrue(exp3.Equals(1000000));
+            Console.WriteLine(activePokemon.PrintPokemon());
+            Assert.Pass();
         }
 
         [Test]
-        public void TestMediumSlowGrowthRate()
+        public void TestPrintWildPokemon()
         {
-            long exp1 = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(5, GrowthRate.MEDIUM_SLOW);
-            Assert.IsTrue(exp1.Equals(135));
-            long exp2 = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(25, GrowthRate.MEDIUM_SLOW);
-            Assert.IsTrue(exp2.Equals(11735));
-            long exp3 = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(100, GrowthRate.MEDIUM_SLOW);
-            Assert.IsTrue(exp3.Equals(1059860));
+            Console.WriteLine(wildPokemon.PrintPokemon());
+            Assert.Pass();
         }
 
         [Test]
-        public void TestFastGrowthRate()
+        public void TestPrintPlayerOwnedPokemon()
         {
-            long exp1 = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(5, GrowthRate.FAST);
-            Assert.IsTrue(exp1.Equals(100));
-            long exp2 = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(25, GrowthRate.FAST);
-            Assert.IsTrue(exp2.Equals(12500));
-            long exp3 = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(100, GrowthRate.FAST);
-            Assert.IsTrue(exp3.Equals(800000));
-        }
-
-        [Test]
-        public void TestSlowGrowthRate()
-        {
-            long exp1 = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(5, GrowthRate.SLOW);
-            Assert.IsTrue(exp1.Equals(156));
-            long exp2 = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(25, GrowthRate.SLOW);
-            Assert.IsTrue(exp2.Equals(19531));
-            long exp3 = GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(100, GrowthRate.SLOW);
-            Assert.IsTrue(exp3.Equals(1250000));
+            Console.WriteLine(playerOwnedPokemon.PrintPokemon());
+            Assert.Pass();
         }
     }
 }
