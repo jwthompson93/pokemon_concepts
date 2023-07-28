@@ -19,7 +19,7 @@ namespace Pokemon.Pokemon
         {
             Console.WriteLine($"{ActivePokemon.BasePokemon.Name} gained {expGained} exp");
             Exp += expGained;
-            while (Exp > GrowthRateConstants.GetInstance()
+            while (Exp >= GrowthRateConstants.GetInstance()
                 .CalculateGrowthRateUntilNextLevel(ActivePokemon.Level + 1, ActivePokemon.BasePokemon.GrowthRate) && ActivePokemon.Level < 100)
             {
                 LevelUp();

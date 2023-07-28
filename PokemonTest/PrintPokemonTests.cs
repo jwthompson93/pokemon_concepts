@@ -4,7 +4,7 @@ using Pokemon.Pokemon.Types;
 
 namespace PokemonTest
 {
-    public class Tests
+    public class PrintPokemonTests
     {
         private BasePokemon basePokemon;
         private ActivePokemon activePokemon;
