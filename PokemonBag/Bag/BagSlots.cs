@@ -19,50 +19,44 @@ namespace PokemonBag.Bag
         public BagSlots()
         {
             _keyItems = new Dictionary<int, int>();
-            _keyItems.Add(21, 1);
-            _keyItems.Add(22, 1);
-
             _medicineItems = new Dictionary<int, int>();
-            _medicineItems.Add(11, 3);
-            _medicineItems.Add(12, 2);
-
             _generalItems = new Dictionary<int, int>();
-            _generalItems.Add(1, 3);
-            _generalItems.Add(2, 1);
-
             _tmHmItems = new Dictionary<int, int>();
-            _tmHmItems.Add(101, 2);
-            _tmHmItems.Add(102, 1);
         }
 
         public void AddItemToBag(int itemId)
         {
+            AddItemToBag(itemId, 1);
+        }
+
+        public void AddItemToBag(int itemId, int quantity)
+        {
             AItem item = ItemConstants.GetInstance().getItem(itemId);
 
             if (item is KeyItem) {
-                CheckIfBagContainsItem(itemId, ref _keyItems);
+                CheckIfBagContainsItem(itemId, quantity, ref _keyItems);
             }
             else if (item is MedicineItem)
             {
-                CheckIfBagContainsItem(itemId, ref _medicineItems);
+                CheckIfBagContainsItem(itemId, quantity, ref _medicineItems);
             }
             else if (item is GeneralItem)
             {
-                CheckIfBagContainsItem(itemId, ref _generalItems);
+                CheckIfBagContainsItem(itemId, quantity, ref _generalItems);
             }
             else if (item is TmHmItem)
             {
-                CheckIfBagContainsItem(itemId, ref _tmHmItems);
+                CheckIfBagContainsItem(itemId, quantity, ref _tmHmItems);
             }
         }
 
-        private void CheckIfBagContainsItem(int itemId, ref Dictionary<int, int> itemBag) {
+        private void CheckIfBagContainsItem(int itemId, int quantity, ref Dictionary<int, int> itemBag) {
             if (itemBag.ContainsKey(itemId)) {
-                itemBag[itemId]++;
+                itemBag[itemId] = itemBag[itemId] + quantity;
             }
             else
             {
-                itemBag.Add(itemId, 1);
+                itemBag.Add(itemId, quantity);
             }
         }
 
