@@ -39,7 +39,8 @@ namespace Pokemon.Pokemon.Types
                 $"EV Yield:\t{this.EvYield.PrintStats()}\n" +
                 $"Height:\t{this.Height}\n" +
                 $"Weight:\t{this.Weight}\n" +
-                $"Catch Rate:\t{this.CatchRate}\n";
+                $"Catch Rate:\t{this.CatchRate}\n" +
+                $"Growth Rate:\t{this.GrowthRate}\n";
         }
     }
 }

@@ -28,7 +28,7 @@ namespace PokemonTest
             playerOwned.GainExp(43);
             Console.WriteLine(playerOwned.PrintPokemon());
             Console.WriteLine("Exp until next level: {0}", (GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(playerOwned.ActivePokemon.Level + 1, playerOwned.ActivePokemon.BasePokemon.GrowthRate) - playerOwned.Exp));
-            Assert.True(playerOwned.Exp == 178);
+            Assert.That(playerOwned.Exp, Is.EqualTo(178));
         }
 
         [Test]

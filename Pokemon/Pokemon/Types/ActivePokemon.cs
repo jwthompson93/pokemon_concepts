@@ -24,8 +24,10 @@ namespace Pokemon.Pokemon.Types
 
         public Stats InitialIvs { get; }
         public Stats Evs { get; set; }
+        public Stats Stats { get; set; }
         public int Level { get; set; }
         public int Friendship { get; set; }
+        public int CurrentHp { get; set; }
 
         public bool IsCatchable { get; internal set; }
 

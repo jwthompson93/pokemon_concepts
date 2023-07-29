@@ -10,6 +10,8 @@ namespace Pokemon.Pokemon.Constants
     {
         private static GrowthRateConstants _instance;
 
+        private GrowthRateConstants() { }
+
         public static GrowthRateConstants GetInstance()
         {
             if (_instance == null)
