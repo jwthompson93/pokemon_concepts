@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonBag.Bag
+namespace Item.Types
 {
-    public abstract class Item
+    public abstract class AItem
     {
-        public Item(int id, string name, string description)
+        public AItem(int id, string name, string description)
         {
-            this.Id = id;
-            this.Name = name;
-            this.Description = description;
+            Id = id;
+            Name = name;
+            Description = description;
         }
         public int Id { get; set; }
         public string Name { get; }

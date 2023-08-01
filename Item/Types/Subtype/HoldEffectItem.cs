@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonBag.Bag.Types.Subtype
+namespace Item.Types.Subtype
 {
-    public interface UsableItem
+    public abstract class HoldEffectItem
     {
-        public void useItem();
+        public abstract void useHoldEffect();
     }
 }
