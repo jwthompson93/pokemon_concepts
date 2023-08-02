@@ -27,7 +27,7 @@ namespace PokemonTest
             PlayerOwnedPokemon playerOwned = playerOwnedPokemon;
             playerOwned.GainExp(43);
             Console.WriteLine(playerOwned.PrintPokemon());
-            Console.WriteLine("Exp until next level: {0}", (GrowthRateSingleton.GetInstance().CalculateGrowthRateUntilNextLevel(playerOwned.Level + 1, playerOwned.BasePokemon.GrowthRate) - playerOwned.Exp));
+            Console.WriteLine("Exp until next level: {0}", (GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(playerOwned.Level + 1, playerOwned.BasePokemon.GrowthRate) - playerOwned.Exp));
             Assert.That(playerOwned.Exp, Is.EqualTo(178));
         }
 
@@ -37,7 +37,7 @@ namespace PokemonTest
             PlayerOwnedPokemon playerOwned = playerOwnedPokemon;
             playerOwned.GainExp(96);
             Console.WriteLine(playerOwned.PrintPokemon());
-            Console.WriteLine("Exp until next level: {0}", (GrowthRateSingleton.GetInstance().CalculateGrowthRateUntilNextLevel(playerOwned.Level + 1, playerOwned.BasePokemon.GrowthRate) - playerOwned.Exp));
+            Console.WriteLine("Exp until next level: {0}", (GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(playerOwned.Level + 1, playerOwned.BasePokemon.GrowthRate) - playerOwned.Exp));
             Assert.True(playerOwned.Exp == 231 && playerOwned.Level == 6);
         }
 
@@ -47,7 +47,7 @@ namespace PokemonTest
             PlayerOwnedPokemon playerOwned = playerOwnedPokemon;
             playerOwned.GainExp(101);
             Console.WriteLine(playerOwned.PrintPokemon());
-            Console.WriteLine("Exp until next level: {0}", (GrowthRateSingleton.GetInstance().CalculateGrowthRateUntilNextLevel(playerOwned.Level + 1, playerOwned.BasePokemon.GrowthRate) - playerOwned.Exp));
+            Console.WriteLine("Exp until next level: {0}", (GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(playerOwned.Level + 1, playerOwned.BasePokemon.GrowthRate) - playerOwned.Exp));
             Assert.True(playerOwned.Exp == 236 && playerOwned.Level == 7);
         }
     }

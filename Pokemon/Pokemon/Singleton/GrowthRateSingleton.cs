@@ -22,9 +22,9 @@ namespace Pokemon.Pokemon.Singleton
         }
 
         // Selects the correct growth rate and calculates the exp based on the level
-        public long CalculateGrowthRateUntilNextLevel(int level, GrowthRate growthRate)
+        public int CalculateExperienceAtLevel(int level, GrowthRate growthRate)
         {
-            long experience = 0L;
+            int experience = 0;
 
 
             // This is included as the MEDIUM_SLOW algorithm with a level = 1 returns -53
@@ -50,56 +50,81 @@ namespace Pokemon.Pokemon.Singleton
                 case GrowthRate.ERRATIC:
                     experience = ErraticGrowthRate(level);
                     break;
+                case GrowthRate.FLUCTUATING:
+                    experience = FluctuatingGrowthRate(level);
+                    break;
                 default:
-                    experience = 0L;
+
                     break;
             }
 
             return experience;
         }
 
-        private long MediumSlowGrowthRate(long level)
+        private int MediumSlowGrowthRate(int level)
         {
-            return (long)(1.2 * Math.Pow(level, 3) - 15 * Math.Pow(level, 2) + 100 * level - 140);
+            return (int)(1.2 * Math.Pow(level, 3) - 15 * Math.Pow(level, 2) + 100 * level - 140);
         }
 
-        private long MediumFastGrowthRate(long level)
+        private int MediumFastGrowthRate(int level)
         {
-            return (long)Math.Pow(level, 3);
+            return (int)Math.Pow(level, 3);
         }
 
-        private long SlowGrowthRate(long level)
+        private int SlowGrowthRate(int level)
         {
-            return (long)(5 * Math.Pow(level, 3) / 4);
+            return (int)(5 * Math.Pow(level, 3) / 4);
         }
 
-        private long FastGrowthRate(long level)
+        private int FastGrowthRate(int level)
         {
-            return (long)(4 * Math.Pow(level, 3) / 5);
+            return (int)(4 * Math.Pow(level, 3) / 5);
         }
 
-        private long ErraticGrowthRate(long level)
+        private int ErraticGrowthRate(int level)
         {
-            long experience = 0L;
+            int experience = 0;
 
             if (level <= 50)
             {
-                experience = (long)((Math.Pow(level, 3) * (100 - level)) / 50);
+                experience = (int)((Math.Pow(level, 3) * (100 - level)) / 50);
             }
 
-            if (level > 50)
+            if (level > 50 && level <= 68)
             {
-                experience = (long)((Math.Pow(level, 3) * (150 - level) / 100));
+                experience = (int)((Math.Pow(level, 3) * (150 - level) / 100));
             }
 
-            if (level > 68)
+            if (level > 68 && level <= 98)
             {
-                experience = (long)((Math.Pow(level, 3) * ((1911 - (10 * level)) / 3)) / 500);
+                experience = (int)((Math.Pow(level, 3) * ((1911 - (10 * level)) / 3)) / 500);
             }
 
             if (level > 98)
             {
-                experience = (long)(Math.Pow(level, 3) * (160 - level) / 100);
+                experience = (int)(Math.Pow(level, 3) * (160 - level) / 100);
+            }
+
+            return experience;
+        }
+
+        private int FluctuatingGrowthRate(int level)
+        {
+            int experience = 0;
+
+            if (level <= 15)
+            {
+                experience = (int)(Math.Pow(level, 3) * (((level + 1) / 3) + 24)) / 50;
+            }
+
+            if (level > 15 && level <= 36)
+            {
+                experience = (int)((Math.Pow(level, 3) * (level + 14)) / 50);
+            }
+
+            if (level > 36)
+            {
+                experience = (int)((Math.Pow(level, 3) * ((level / 2) + 32)) / 50);
             }
 
             return experience;
