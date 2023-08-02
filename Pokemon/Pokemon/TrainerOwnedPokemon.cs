@@ -1,13 +1,13 @@
-﻿using Pokemon.Pokemon.Types;
+﻿using Pokemon.Pokemon.Constants;
+using Pokemon.Pokemon.Types;
 
 namespace Pokemon.Pokemon
 {
-    public class TrainerOwnedPokemon
+    public class TrainerOwnedPokemon : ActivePokemon
     {
-        public TrainerOwnedPokemon(ActivePokemon activePokemon) {
+        public TrainerOwnedPokemon(int pokemonId, Stats initialIvs, Stats evs, int level, bool isCatchable) : base(pokemonId, initialIvs, evs, level, isCatchable)
+        {
 
         }
-
-        public ActivePokemon ActivePokemon { get; set; }
     }
 }

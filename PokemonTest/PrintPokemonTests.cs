@@ -15,22 +15,14 @@ namespace PokemonTest
         public void Setup()
         {
             basePokemon = PokemonConstants.GetInstance().GetPokemon(1);
-            activePokemon = new ActivePokemon(1, new Stats(12, 13, 16, 6, 21, 31), new Stats(), 5, true);
-            wildPokemon = new WildPokemon(1, 5);
-            playerOwnedPokemon = new PlayerOwnedPokemon(wildPokemon.ActivePokemon);
+            wildPokemon = new WildPokemon(1, 5, true);
+            playerOwnedPokemon = new PlayerOwnedPokemon(wildPokemon.BasePokemon.Id, wildPokemon.InitialIvs, wildPokemon.Evs, wildPokemon.Level, false);
         }
 
         [Test]
         public void TestPrintBasePokemon()
         {
             Console.WriteLine(basePokemon.PrintPokemon());
-            Assert.Pass();
-        }
-
-        [Test]
-        public void TestPrintActivePokemon()
-        {
-            Console.WriteLine(activePokemon.PrintPokemon());
             Assert.Pass();
         }
 

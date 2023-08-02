@@ -2,8 +2,9 @@
 
 namespace Pokemon.Pokemon.Types
 {
-    public class ActivePokemon
+    public abstract class ActivePokemon
     {
+        // Used for initialising PlayerOwnedPokemon
         public ActivePokemon(int pokemonId, Stats initialIvs, int level)
         {
             BasePokemon = PokemonConstants.GetInstance().GetPokemon(pokemonId);
@@ -14,6 +15,15 @@ namespace Pokemon.Pokemon.Types
             Friendship = 70;
         }
 
+        // Used as base for WildPokemon and EggPokemon
+        public ActivePokemon(int pokemonId, int level, bool isCatchable)
+        {
+            BasePokemon = PokemonConstants.GetInstance().GetPokemon(pokemonId);
+            Level = level;
+            IsCatchable = isCatchable;
+        }
+
+        // Used as base for TrainerOwnedPokemon, PlayerOwnedPokemon as well as being used for WildPokemon
         public ActivePokemon(int pokemonId, Stats initialIvs, Stats evs, int level, bool isCatchable) : this(pokemonId, initialIvs, level)
         {
             Evs = evs;
@@ -22,7 +32,7 @@ namespace Pokemon.Pokemon.Types
 
         public BasePokemon BasePokemon { get; protected set; }
 
-        public Stats InitialIvs { get; }
+        public Stats InitialIvs { get; protected set; }
         public Stats Evs { get; set; }
         public Stats Stats { get; set; }
         public int Level { get; set; }
@@ -33,7 +43,7 @@ namespace Pokemon.Pokemon.Types
 
         public string PrintPokemon()
         {
-            return this.BasePokemon.PrintPokemon() +
+            return BasePokemon.PrintPokemon() +
                 $"Initial IVs:\t{InitialIvs.PrintStats()}\n" +
                 $"EVs:\t{Evs.PrintStats()}\n" +
                 $"Level:\t{Level}\n" +
