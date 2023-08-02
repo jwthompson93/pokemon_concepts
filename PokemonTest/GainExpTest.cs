@@ -1,11 +1,11 @@
-﻿using Pokemon.Pokemon.Constants;
-using Pokemon.Pokemon;
+﻿using Pokemon.Pokemon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pokemon.Pokemon.Types;
+using Pokemon.Pokemon.Singleton;
 
 namespace PokemonTest
 {
@@ -17,8 +17,8 @@ namespace PokemonTest
         [SetUp]
         public void Setup()
         {
-            wildPokemon = new WildPokemon(1, 5);
-            playerOwnedPokemon = new PlayerOwnedPokemon(wildPokemon.ActivePokemon);
+            wildPokemon = new WildPokemon(1, 5, false);
+            playerOwnedPokemon = new PlayerOwnedPokemon(wildPokemon.BasePokemon.Id, wildPokemon.InitialIvs, wildPokemon.Evs, wildPokemon.Level, false);
         }
 
         [Test]
@@ -27,7 +27,7 @@ namespace PokemonTest
             PlayerOwnedPokemon playerOwned = playerOwnedPokemon;
             playerOwned.GainExp(43);
             Console.WriteLine(playerOwned.PrintPokemon());
-            Console.WriteLine("Exp until next level: {0}", (GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(playerOwned.ActivePokemon.Level + 1, playerOwned.ActivePokemon.BasePokemon.GrowthRate) - playerOwned.Exp));
+            Console.WriteLine("Exp until next level: {0}", (GrowthRateSingleton.GetInstance().CalculateGrowthRateUntilNextLevel(playerOwned.Level + 1, playerOwned.BasePokemon.GrowthRate) - playerOwned.Exp));
             Assert.That(playerOwned.Exp, Is.EqualTo(178));
         }
 
@@ -37,8 +37,8 @@ namespace PokemonTest
             PlayerOwnedPokemon playerOwned = playerOwnedPokemon;
             playerOwned.GainExp(96);
             Console.WriteLine(playerOwned.PrintPokemon());
-            Console.WriteLine("Exp until next level: {0}", (GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(playerOwned.ActivePokemon.Level + 1, playerOwned.ActivePokemon.BasePokemon.GrowthRate) - playerOwned.Exp));
-            Assert.True(playerOwned.Exp == 231 && playerOwned.ActivePokemon.Level == 6);
+            Console.WriteLine("Exp until next level: {0}", (GrowthRateSingleton.GetInstance().CalculateGrowthRateUntilNextLevel(playerOwned.Level + 1, playerOwned.BasePokemon.GrowthRate) - playerOwned.Exp));
+            Assert.True(playerOwned.Exp == 231 && playerOwned.Level == 6);
         }
 
         [Test]
@@ -47,8 +47,8 @@ namespace PokemonTest
             PlayerOwnedPokemon playerOwned = playerOwnedPokemon;
             playerOwned.GainExp(101);
             Console.WriteLine(playerOwned.PrintPokemon());
-            Console.WriteLine("Exp until next level: {0}", (GrowthRateConstants.GetInstance().CalculateGrowthRateUntilNextLevel(playerOwned.ActivePokemon.Level + 1, playerOwned.ActivePokemon.BasePokemon.GrowthRate) - playerOwned.Exp));
-            Assert.True(playerOwned.Exp == 236 && playerOwned.ActivePokemon.Level == 7);
+            Console.WriteLine("Exp until next level: {0}", (GrowthRateSingleton.GetInstance().CalculateGrowthRateUntilNextLevel(playerOwned.Level + 1, playerOwned.BasePokemon.GrowthRate) - playerOwned.Exp));
+            Assert.True(playerOwned.Exp == 236 && playerOwned.Level == 7);
         }
     }
 }

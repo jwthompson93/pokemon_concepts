@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Pokemon.Pokemon.Constants;
 
-namespace Pokemon.Pokemon.Constants
+namespace Pokemon.Pokemon.Singleton
 {
-    public class GrowthRateConstants
+    public class GrowthRateSingleton
     {
-        private static GrowthRateConstants _instance;
+        private static GrowthRateSingleton _instance;
 
-        private GrowthRateConstants() { }
+        private GrowthRateSingleton() { }
 
-        public static GrowthRateConstants GetInstance()
+        public static GrowthRateSingleton GetInstance()
         {
             if (_instance == null)
-                _instance = new GrowthRateConstants();
+                _instance = new GrowthRateSingleton();
 
             return _instance;
         }
@@ -23,7 +24,8 @@ namespace Pokemon.Pokemon.Constants
         // Selects the correct growth rate and calculates the exp based on the level
         public long CalculateGrowthRateUntilNextLevel(int level, GrowthRate growthRate)
         {
-            switch (growthRate) {
+            switch (growthRate)
+            {
                 case GrowthRate.MEDIUM_SLOW:
                     return MediumSlowGrowthRate(level);
                 case GrowthRate.MEDIUM_FAST:
@@ -32,14 +34,14 @@ namespace Pokemon.Pokemon.Constants
                     return FastGrowthRate(level);
                 case GrowthRate.SLOW:
                     return SlowGrowthRate(level);
-                default: 
+                default:
                     return 0;
             }
         }
 
         private long MediumSlowGrowthRate(long level)
         {
-            return (long)(1.2 * (Math.Pow(level, 3)) - (15 * Math.Pow(level, 2)) + (100 * level) - 140);
+            return (long)(1.2 * Math.Pow(level, 3) - 15 * Math.Pow(level, 2) + 100 * level - 140);
         }
 
         private long MediumFastGrowthRate(long level)
@@ -49,12 +51,12 @@ namespace Pokemon.Pokemon.Constants
 
         private long SlowGrowthRate(long level)
         {
-            return (long)((5 * Math.Pow(level, 3)) / 4);
+            return (long)(5 * Math.Pow(level, 3) / 4);
         }
 
         private long FastGrowthRate(long level)
         {
-            return (long)((4 * Math.Pow(level, 3)) / 5);
+            return (long)(4 * Math.Pow(level, 3) / 5);
         }
     }
 }
