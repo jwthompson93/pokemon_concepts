@@ -24,19 +24,38 @@ namespace Pokemon.Pokemon.Singleton
         // Selects the correct growth rate and calculates the exp based on the level
         public long CalculateGrowthRateUntilNextLevel(int level, GrowthRate growthRate)
         {
+            long experience = 0L;
+
+
+            // This is included as the MEDIUM_SLOW algorithm with a level = 1 returns -53
+            // Also, the FAST and SLOW algorithms will return 1 so there needed to be a check for that too
+            if (level == 1) { 
+                return experience;
+            }
+
             switch (growthRate)
             {
                 case GrowthRate.MEDIUM_SLOW:
-                    return MediumSlowGrowthRate(level);
+                    experience = MediumSlowGrowthRate(level);
+                    break;
                 case GrowthRate.MEDIUM_FAST:
-                    return MediumFastGrowthRate(level);
+                    experience = MediumFastGrowthRate(level);
+                    break;
                 case GrowthRate.FAST:
-                    return FastGrowthRate(level);
+                    experience = FastGrowthRate(level);
+                    break;
                 case GrowthRate.SLOW:
-                    return SlowGrowthRate(level);
+                    experience = SlowGrowthRate(level);
+                    break;
+                case GrowthRate.ERRATIC:
+                    experience = ErraticGrowthRate(level);
+                    break;
                 default:
-                    return 0;
+                    experience = 0L;
+                    break;
             }
+
+            return experience;
         }
 
         private long MediumSlowGrowthRate(long level)
@@ -57,6 +76,33 @@ namespace Pokemon.Pokemon.Singleton
         private long FastGrowthRate(long level)
         {
             return (long)(4 * Math.Pow(level, 3) / 5);
+        }
+
+        private long ErraticGrowthRate(long level)
+        {
+            long experience = 0L;
+
+            if (level <= 50)
+            {
+                experience = (long)((Math.Pow(level, 3) * (100 - level)) / 50);
+            }
+
+            if (level > 50)
+            {
+                experience = (long)((Math.Pow(level, 3) * (150 - level) / 100));
+            }
+
+            if (level > 68)
+            {
+                experience = (long)((Math.Pow(level, 3) * ((1911 - (10 * level)) / 3)) / 500);
+            }
+
+            if (level > 98)
+            {
+                experience = (long)(Math.Pow(level, 3) * (160 - level) / 100);
+            }
+
+            return experience;
         }
     }
 }
