@@ -1,27 +1,22 @@
-﻿using Item.Constants;
+﻿using Bag.Bag;
+using Item.Constants;
 using Item.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonBag.Bag
 {
     public class BagSlots
     {
-
-        private Dictionary<int, int> _keyItems;
-        private Dictionary<int, int> _medicineItems;
-        private Dictionary<int, int> _generalItems;
-        private Dictionary<int, int> _tmHmItems;
+        private Dictionary<ItemType, Dictionary<int, int>> slots;
 
         public BagSlots()
         {
-            _keyItems = new Dictionary<int, int>();
-            _medicineItems = new Dictionary<int, int>();
-            _generalItems = new Dictionary<int, int>();
-            _tmHmItems = new Dictionary<int, int>();
+            slots = new Dictionary<ItemType, Dictionary<int, int>>
+            {
+                { ItemType.GENERAL_ITEM, new Dictionary<int, int>() },
+                { ItemType.MEDICINE_ITEM, new Dictionary<int, int>() },
+                { ItemType.TMHM_ITEM, new Dictionary<int, int>() },
+                { ItemType.KEY_ITEM, new Dictionary<int, int>() }
+            };
         }
 
         public void AddItemToBag(int itemId)
@@ -34,52 +29,45 @@ namespace PokemonBag.Bag
             AItem item = ItemConstants.GetInstance().getItem(itemId);
 
             if (item is KeyItem) {
-                CheckIfBagContainsItem(itemId, quantity, ref _keyItems);
+                CheckIfBagContainsItem(itemId, quantity, ItemType.KEY_ITEM);
             }
             else if (item is MedicineItem)
             {
-                CheckIfBagContainsItem(itemId, quantity, ref _medicineItems);
+                CheckIfBagContainsItem(itemId, quantity, ItemType.MEDICINE_ITEM);
             }
             else if (item is GeneralItem)
             {
-                CheckIfBagContainsItem(itemId, quantity, ref _generalItems);
+                CheckIfBagContainsItem(itemId, quantity, ItemType.GENERAL_ITEM);
             }
             else if (item is TmHmItem)
             {
-                CheckIfBagContainsItem(itemId, quantity, ref _tmHmItems);
+                CheckIfBagContainsItem(itemId, quantity, ItemType.TMHM_ITEM);
             }
         }
 
-        private void CheckIfBagContainsItem(int itemId, int quantity, ref Dictionary<int, int> itemBag) {
-            if (itemBag.ContainsKey(itemId)) {
-                itemBag[itemId] = itemBag[itemId] + quantity;
+        private void CheckIfBagContainsItem(int itemId, int quantity, ItemType itemType) {
+            if (slots[itemType].ContainsKey(itemId)) {
+                slots[itemType][itemId] = slots[itemType][itemId] + quantity;
             }
             else
             {
-                itemBag.Add(itemId, quantity);
+                slots[itemType].Add(itemId, quantity);
             }
+        }
+
+        public Dictionary<int, int> GetItemBag(ItemType itemType)
+        {
+            return slots[itemType];
         }
 
         public void PrintBag()
         {
-            Console.WriteLine("General Items");
-            foreach(int itemId in _generalItems.Keys) { 
-                Console.WriteLine("\t {0} \tx{1}", ItemConstants.GetInstance().getItem(itemId).Name, _generalItems[itemId]);
-            }
-            Console.WriteLine("Medicine Items");
-            foreach (int itemId in _medicineItems.Keys)
+            foreach(ItemType itemType in slots.Keys)
             {
-                Console.WriteLine("\t {0} \tx{1}", ItemConstants.GetInstance().getItem(itemId).Name, _medicineItems[itemId]);
-            }
-            Console.WriteLine("TM/HM Items");
-            foreach (int itemId in _tmHmItems.Keys)
-            {
-                Console.WriteLine("\t {0} \tx{1}", ItemConstants.GetInstance().getItem(itemId).Name, _tmHmItems[itemId]);
-            }
-            Console.WriteLine("Key Items");
-            foreach (int itemId in _keyItems.Keys)
-            {
-                Console.WriteLine("\t {0} \tx{1}", ItemConstants.GetInstance().getItem(itemId).Name, _keyItems[itemId]);
+                foreach (int itemId in slots[itemType].Keys)
+                {
+                    Console.WriteLine("\t {0} \tx{1}", ItemConstants.GetInstance().getItem(itemId).Name, slots[itemType][itemId]);
+                }
             }
         }
     }
