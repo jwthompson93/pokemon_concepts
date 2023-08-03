@@ -37,5 +37,12 @@ namespace BagTest
             bagSlots.AddItemToBag(11, 1); // Potion - Medicine Item
             Assert.AreEqual(bagSlots.GetItemBag(ItemType.MEDICINE_ITEM)[11], 4);
         }
+
+        [Test]
+        public void TestAddMultipleOfAnItemToBag()
+        {
+            bagSlots.AddItemToBag(101, 3); // TM36: Selfdestruct - TM / HM Item
+            Assert.AreEqual(bagSlots.GetItemBag(ItemType.TMHM_ITEM)[101], 5);
+        }
     }
 }
