@@ -18,20 +18,20 @@ namespace Pokemon.Pokemon.Constants
         RELAXED,
         IMPISH,
         LAX,
+        TIMID,
         HASTY,
         SERIOUS,
+        JOLLY,
+        NAIVE,
+        MODEST,
         MILD,
         QUIET,
+        BASHFUL,
         RASH,
         CALM,
         GENTLE,
-        CAREFUL,
-        QUIRKY,
         SASSY,
-        MODEST,
-        JOLLY,
-        TIMID,
-        NAIVE,
-        BASHFUL
+        CAREFUL,
+        QUIRKY
     }
 }
