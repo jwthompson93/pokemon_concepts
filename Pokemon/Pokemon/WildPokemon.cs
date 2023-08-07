@@ -7,7 +7,7 @@ namespace Pokemon.Pokemon
     {
         private Random _random = new Random(); // Remove once completed
 
-        public WildPokemon(int pokemonId, int level, bool isCatchable) : base(pokemonId, level, isCatchable)
+        public WildPokemon(int pokemonId, int level) : base(pokemonId, level, true)
         {
             this.InitialIvs = new Stats(
                 _random.Next(0, 31),

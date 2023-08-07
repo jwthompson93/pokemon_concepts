@@ -17,7 +17,7 @@ namespace PokemonTest
         [SetUp]
         public void Setup()
         {
-            wildPokemon = new WildPokemon(1, 5, false);
+            wildPokemon = new WildPokemon(1, 5);
             playerOwnedPokemon = new PlayerOwnedPokemon(wildPokemon.BasePokemon.Id, wildPokemon.InitialIvs, wildPokemon.Evs, wildPokemon.Level, false);
         }
 
