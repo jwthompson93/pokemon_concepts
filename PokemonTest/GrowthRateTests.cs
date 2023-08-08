@@ -1,5 +1,5 @@
-﻿using Pokemon.Pokemon.Constants;
-using Pokemon.Pokemon.Singleton;
+﻿using Pokemon.Enums;
+using Pokemon.Singleton;
 using System;
 using System.Collections.Generic;
 using System.Linq;
