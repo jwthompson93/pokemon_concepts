@@ -1,4 +1,4 @@
-﻿using Pokemon.Pokemon.Constants;
+﻿using Pokemon.Constants;
 
 namespace Pokemon.Pokemon.Types
 {

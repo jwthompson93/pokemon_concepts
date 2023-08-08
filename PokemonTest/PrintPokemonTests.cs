@@ -1,4 +1,3 @@
-using Pokemon.Pokemon;
 using Pokemon.Pokemon.Constants;
 using Pokemon.Pokemon.Types;
 
