@@ -1,12 +1,12 @@
-using Pokemon.Pokemon.Constants;
-using Pokemon.Pokemon.Types;
+using Pokemon.Constants;
+using Pokemon.Types;
+using Pokemon.Types.Subtype;
 
 namespace PokemonTest
 {
     public class PrintPokemonTests
     {
         private BasePokemon basePokemon;
-        private ActivePokemon activePokemon;
         private WildPokemon wildPokemon;
         private PlayerOwnedPokemon playerOwnedPokemon;
 

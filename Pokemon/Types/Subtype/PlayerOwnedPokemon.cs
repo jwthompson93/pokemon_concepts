@@ -1,7 +1,9 @@
-﻿using Pokemon.Constants;
+﻿
+
+using Pokemon.Constants;
 using Pokemon.Singleton;
 
-namespace Pokemon.Pokemon.Types.Subtype
+namespace Pokemon.Types.Subtype
 {
     public class PlayerOwnedPokemon : ActivePokemon
     {

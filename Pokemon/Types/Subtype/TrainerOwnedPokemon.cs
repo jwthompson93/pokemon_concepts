@@ -1,6 +1,6 @@
 ﻿using Pokemon.Constants;
 
-namespace Pokemon.Pokemon.Types.Subtype
+namespace Pokemon.Types.Subtype
 {
     public class TrainerOwnedPokemon : ActivePokemon
     {

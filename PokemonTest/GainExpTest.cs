@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Pokemon.Pokemon.Types;
-using Pokemon.Pokemon.Singleton;
+using Pokemon.Singleton;
+using Pokemon.Types.Subtype;
 
 namespace PokemonTest
 {

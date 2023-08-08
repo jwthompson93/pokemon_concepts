@@ -1,5 +1,5 @@
-﻿using Pokemon.Pokemon.Singleton;
-using Pokemon.Pokemon.Types;
+﻿using Pokemon.Singleton;
+using Pokemon.Types.Subtype;
 using System;
 using System.Collections.Generic;
 using System.Linq;

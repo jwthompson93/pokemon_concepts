@@ -1,6 +1,6 @@
 ﻿using Pokemon.Constants;
 
-namespace Pokemon.Pokemon.Types
+namespace Pokemon.Types
 {
     public class BasePokemon
     {

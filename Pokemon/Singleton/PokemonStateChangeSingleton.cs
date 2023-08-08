@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Pokemon.Pokemon.Types;
+using Pokemon.Types.Subtype;
 
-namespace Pokemon.Pokemon.Singleton
+namespace Pokemon.Singleton
 {
     public class PokemonStateChangeSingleton
     {

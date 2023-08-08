@@ -1,4 +1,4 @@
-﻿namespace Pokemon.Pokemon.Constants
+﻿namespace Pokemon.Constants
 {
     public struct Stats
     {

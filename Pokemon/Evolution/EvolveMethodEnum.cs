@@ -1,4 +1,4 @@
-﻿namespace Pokemon.Pokemon.Evolution
+﻿namespace Pokemon.Evolution
 {
     public enum EvolveMethodEnum
     {

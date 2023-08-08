@@ -1,6 +1,7 @@
-﻿using Pokemon.Pokemon.Types;
+﻿using Pokemon.Constants;
+using Pokemon.Types;
 
-namespace Pokemon.Pokemon.Constants
+namespace Pokemon.Constants
 {
     public class PokemonConstants
     {

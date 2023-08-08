@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Pokemon.Constants;
 
-namespace Pokemon.Pokemon.Singleton
+namespace Pokemon.Singleton
 {
     public class GrowthRateSingleton
     {

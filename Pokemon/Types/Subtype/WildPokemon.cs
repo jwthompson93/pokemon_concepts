@@ -1,7 +1,6 @@
-﻿using Pokemon.Pokemon.Constants;
-using Pokemon.Pokemon.Types;
+﻿using Pokemon.Constants;
 
-namespace Pokemon.Pokemon
+namespace Pokemon.Types.Subtype
 {
     public class WildPokemon : ActivePokemon
     {
@@ -9,7 +8,7 @@ namespace Pokemon.Pokemon
 
         public WildPokemon(int pokemonId, int level) : base(pokemonId, level, true)
         {
-            this.InitialIvs = new Stats(
+            InitialIvs = new Stats(
                 _random.Next(0, 31),
                 _random.Next(0, 31),
                 _random.Next(0, 31),
@@ -17,7 +16,7 @@ namespace Pokemon.Pokemon
                 _random.Next(0, 31),
                 _random.Next(0, 31)
             );
-            this.Evs = new Stats(0, 0, 0, 0, 0, 0);
+            Evs = new Stats(0, 0, 0, 0, 0, 0);
         }
 
         public new string PrintPokemon()
