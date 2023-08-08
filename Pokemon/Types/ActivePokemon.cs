@@ -1,9 +1,20 @@
 ﻿using Pokemon.Constants;
+using Pokemon.Enums;
 
 namespace Pokemon.Types
 {
     public abstract class ActivePokemon
     {
+        public BasePokemon BasePokemon { get; protected set; }
+        public Stats InitialIvs { get; protected set; }
+        public Stats Evs { get; set; }
+        public Stats Stats { get; set; }
+        public int Level { get; set; }
+        public int Friendship { get; set; }
+        public int CurrentHp { get; set; }
+        public Nature Nature { get; set; }
+        public bool IsCatchable { get; protected set; }
+
         // Used for initialising PlayerOwnedPokemon
         public ActivePokemon(int pokemonId, Stats initialIvs, int level)
         {
@@ -29,17 +40,6 @@ namespace Pokemon.Types
             Evs = evs;
             IsCatchable = isCatchable;
         }
-
-        public BasePokemon BasePokemon { get; protected set; }
-
-        public Stats InitialIvs { get; protected set; }
-        public Stats Evs { get; set; }
-        public Stats Stats { get; set; }
-        public int Level { get; set; }
-        public int Friendship { get; set; }
-        public int CurrentHp { get; set; }
-
-        public bool IsCatchable { get; internal set; }
 
         public string PrintPokemon()
         {

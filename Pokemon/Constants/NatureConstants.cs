@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pokemon.Constants
 {
-    public enum NatureConstants
+    public enum Nature
     {
         HARDY,
         LONELY,

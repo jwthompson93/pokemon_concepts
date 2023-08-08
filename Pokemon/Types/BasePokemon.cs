@@ -1,4 +1,4 @@
-﻿using Pokemon.Constants;
+﻿using Pokemon.Enums;
 
 namespace Pokemon.Types
 {
@@ -15,7 +15,6 @@ namespace Pokemon.Types
 
         public int CatchRate;
         public GrowthRate GrowthRate;
-
 
         public BasePokemon() { }
         public BasePokemon(int id, string name, Stats baseStats, Stats evYield, float height, float weight, int catchRate, GrowthRate growthRate)

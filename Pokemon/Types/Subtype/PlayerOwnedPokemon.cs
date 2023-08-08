@@ -1,6 +1,4 @@
-﻿
-
-using Pokemon.Constants;
+﻿using Pokemon.Enums;
 using Pokemon.Singleton;
 
 namespace Pokemon.Types.Subtype

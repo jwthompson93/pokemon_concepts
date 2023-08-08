@@ -1,4 +1,4 @@
-﻿using Pokemon.Constants;
+﻿using Pokemon.Enums;
 using Pokemon.Types;
 
 namespace Pokemon.Constants
