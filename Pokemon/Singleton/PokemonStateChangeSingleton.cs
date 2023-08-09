@@ -20,14 +20,14 @@ namespace Pokemon.Singleton
 
         public PlayerOwnedPokemon CaptureWildPokemon(WildPokemon wildPokemon)
         {
-            PlayerOwnedPokemon playerOwnedPokemon = new PlayerOwnedPokemon(wildPokemon.BasePokemon.Id, wildPokemon.InitialIvs, wildPokemon.Evs, wildPokemon.Level, false);
+            PlayerOwnedPokemon playerOwnedPokemon = new PlayerOwnedPokemon(wildPokemon.BasePokemon.Id, wildPokemon.InitialIvs, wildPokemon.Evs, wildPokemon.Level, wildPokemon.Nature, false);
 
             return playerOwnedPokemon;
         }
 
         public PlayerOwnedPokemon HatchPokemon(EggPokemon eggPokemon)
         {
-            PlayerOwnedPokemon playerOwnedPokemon = new PlayerOwnedPokemon(eggPokemon.BasePokemon.Id, eggPokemon.InitialIvs, eggPokemon.Evs, eggPokemon.Level, false);
+            PlayerOwnedPokemon playerOwnedPokemon = new PlayerOwnedPokemon(eggPokemon.BasePokemon.Id, eggPokemon.InitialIvs, eggPokemon.Evs, eggPokemon.Level, eggPokemon.Nature, false);
 
             return playerOwnedPokemon;
         }

@@ -4,17 +4,17 @@ namespace Pokemon.Types
 {
     public class BasePokemon
     {
-        public int Id;
-        public string Name;
+        public int Id { get; }
+        public string Name { get; }
 
-        public Stats BaseStats;
-        public Stats EvYield;
+        public Stats BaseStats { get; }
+        public Stats EvYield { get; }
 
-        public float Height;
-        public float Weight;
+        public float Height { get; }
+        public float Weight { get; }
 
-        public int CatchRate;
-        public GrowthRate GrowthRate;
+        public int CatchRate { get; }
+        public GrowthRate GrowthRate { get; }
 
         public BasePokemon() { }
         public BasePokemon(int id, string name, Stats baseStats, Stats evYield, float height, float weight, int catchRate, GrowthRate growthRate)
