@@ -1,11 +1,12 @@
-﻿using Pokemon.Enums;
+﻿using Pokemon.Constants;
+using Pokemon.Enums;
 using Pokemon.Singleton;
 
 namespace Pokemon.Types.Subtype
 {
     public class PlayerOwnedPokemon : ActivePokemon
     {
-        public PlayerOwnedPokemon(int pokemonId, Stats initialIvs, Stats evs, int level, bool isCatchable) : base(pokemonId, initialIvs, evs, level, isCatchable)
+        public PlayerOwnedPokemon(int pokemonId, Stats initialIvs, Stats evs, int level, Nature nature, bool isCatchable) : base(pokemonId, initialIvs, evs, level, nature, isCatchable)
         {
             IsCatchable = false;
             Exp = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(Level, BasePokemon.GrowthRate);

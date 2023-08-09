@@ -35,10 +35,11 @@ namespace Pokemon.Types
         }
 
         // Used as base for TrainerOwnedPokemon, PlayerOwnedPokemon as well as being used for WildPokemon
-        public ActivePokemon(int pokemonId, Stats initialIvs, Stats evs, int level, bool isCatchable) : this(pokemonId, initialIvs, level)
+        public ActivePokemon(int pokemonId, Stats initialIvs, Stats evs, int level, Nature nature, bool isCatchable) : this(pokemonId, initialIvs, level)
         {
             Evs = evs;
             IsCatchable = isCatchable;
+            Nature = nature;
         }
 
         public string PrintPokemon()
@@ -47,6 +48,7 @@ namespace Pokemon.Types
                 $"Initial IVs:\t{InitialIvs.PrintStats()}\n" +
                 $"EVs:\t{Evs.PrintStats()}\n" +
                 $"Level:\t{Level}\n" +
+                $"Nature:\t{Nature}\n" +
                 $"Is Catchable?:\t{IsCatchable}\n";
         }
     }
