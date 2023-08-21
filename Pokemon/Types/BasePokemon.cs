@@ -1,7 +1,10 @@
 ﻿using Pokemon.Enums;
+using Pokemon.Struct;
 
 namespace Pokemon.Types
 {
+    // The BasePokemon class contains information for static Pokemon values (values that all Pokemon of the same species have)
+
     public class BasePokemon
     {
         public int Id { get; }

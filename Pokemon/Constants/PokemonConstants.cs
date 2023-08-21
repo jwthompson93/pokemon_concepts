@@ -1,5 +1,6 @@
 ﻿using Pokemon.Enums;
 using Pokemon.Types;
+using Pokemon.Struct;
 
 namespace Pokemon.Constants
 {

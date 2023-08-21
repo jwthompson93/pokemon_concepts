@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Pokemon.Singleton;
-using Pokemon.Types.Subtype;
+﻿using Pokemon.Types.Subtype;
 
 namespace PokemonTest
 {
@@ -26,7 +20,7 @@ namespace PokemonTest
             PlayerOwnedPokemon playerOwned = playerOwnedPokemon;
             playerOwned.GainExp(43);
             Console.WriteLine(playerOwned.PrintPokemon());
-            Console.WriteLine("Exp until next level: {0}", (GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(playerOwned.Level + 1, playerOwned.BasePokemon.GrowthRate) - playerOwned.Exp));
+            Console.WriteLine("Exp until next level: {0}", playerOwned.growthRate.Calculate(playerOwned.Level + 1));
             Assert.That(playerOwned.Exp, Is.EqualTo(178));
         }
 
@@ -36,7 +30,7 @@ namespace PokemonTest
             PlayerOwnedPokemon playerOwned = playerOwnedPokemon;
             playerOwned.GainExp(96);
             Console.WriteLine(playerOwned.PrintPokemon());
-            Console.WriteLine("Exp until next level: {0}", (GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(playerOwned.Level + 1, playerOwned.BasePokemon.GrowthRate) - playerOwned.Exp));
+            Console.WriteLine("Exp until next level: {0}", playerOwned.growthRate.Calculate(playerOwned.Level + 1));
             Assert.True(playerOwned.Exp == 231 && playerOwned.Level == 6);
         }
 
@@ -46,7 +40,7 @@ namespace PokemonTest
             PlayerOwnedPokemon playerOwned = playerOwnedPokemon;
             playerOwned.GainExp(101);
             Console.WriteLine(playerOwned.PrintPokemon());
-            Console.WriteLine("Exp until next level: {0}", (GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(playerOwned.Level + 1, playerOwned.BasePokemon.GrowthRate) - playerOwned.Exp));
+            Console.WriteLine("Exp until next level: {0}", playerOwned.growthRate.Calculate(playerOwned.Level + 1));
             Assert.True(playerOwned.Exp == 236 && playerOwned.Level == 7);
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace Pokemon.Enums
+﻿namespace Pokemon.Struct
 {
     public struct Stats
     {
@@ -21,7 +21,7 @@
 
         public string PrintStats()
         {
-            return 
+            return
                 $"HP\t{Hp}\t" +
                 $"Attack\t{Atk}\t" +
                 $"Defence\t{Def}\t" +

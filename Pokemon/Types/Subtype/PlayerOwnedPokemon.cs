@@ -1,6 +1,7 @@
-﻿using Pokemon.Constants;
-using Pokemon.Enums;
-using Pokemon.Singleton;
+﻿using Pokemon.Enums;
+using Pokemon.Factory;
+using Pokemon.Factory.GrowthRate;
+using Pokemon.Struct;
 
 namespace Pokemon.Types.Subtype
 {
@@ -9,18 +10,21 @@ namespace Pokemon.Types.Subtype
         public PlayerOwnedPokemon(int pokemonId, Stats initialIvs, Stats evs, int level, Nature nature, bool isCatchable) : base(pokemonId, initialIvs, evs, level, nature, isCatchable)
         {
             IsCatchable = false;
-            Exp = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(Level, BasePokemon.GrowthRate);
+            growthRate = new GrowthRateFactory().GetGrowthRateCalculationObject(BasePokemon.GrowthRate);
+            Exp = growthRate.Calculate(Level);
         }
 
         public Stats CurrentIvs { get; set; }
         public int Exp { get; set; }
 
+        // Not sure about this. Set values might be preferable
+        public IGrowthRate growthRate { get; set; }
+
         public void GainExp(int expGained)
         {
             Console.WriteLine($"{BasePokemon.Name} gained {expGained} exp");
             Exp += expGained;
-            while (Exp >= GrowthRateSingleton.GetInstance()
-                .CalculateExperienceAtLevel(Level + 1, BasePokemon.GrowthRate) && Level < 100)
+            while (Exp >= growthRate.Calculate(Level + 1) && Level < 100)
             {
                 LevelUp();
             }

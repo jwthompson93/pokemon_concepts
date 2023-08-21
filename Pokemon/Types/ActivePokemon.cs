@@ -1,10 +1,14 @@
 ﻿using Pokemon.Constants;
 using Pokemon.Enums;
+using Pokemon.Struct;
 
 namespace Pokemon.Types
 {
     public abstract class ActivePokemon
     {
+        // The ActivePokemon class is an abstract class used for all Pokemon that can be seen (becomes 'active')
+        // e.g. A wild Pokemon, a Trainer's Pokemon, a Player's Pokemon
+
         public BasePokemon BasePokemon { get; protected set; }
         public Stats InitialIvs { get; protected set; }
         public Stats Evs { get; set; }

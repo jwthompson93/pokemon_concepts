@@ -1,71 +1,81 @@
 ﻿using Pokemon.Enums;
-using Pokemon.Singleton;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Pokemon.Factory;
+using Pokemon.Factory.GrowthRate;
 
 namespace PokemonTest
 {
     public class GrowthRateTests
     {
+        private GrowthRateFactory factory;
+
         [SetUp]
         public void Setup()
         {
+            factory = new GrowthRateFactory();
         }
 
         [Test]
         public void TestMediumFastGrowthRate()
         {
-            long exp0 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(1, GrowthRate.MEDIUM_FAST);
+            IGrowthRate growthRateObject = factory.GetGrowthRateCalculationObject(GrowthRate.MEDIUM_FAST);
+            Assert.IsNotNull(growthRateObject);
+
+            long exp0 = growthRateObject.Calculate(1);
             Assert.AreEqual(0, exp0);
-            long exp1 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(5, GrowthRate.MEDIUM_FAST);
-            Assert.IsTrue(exp1.Equals(125));
-            long exp2 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(25, GrowthRate.MEDIUM_FAST);
-            Assert.IsTrue(exp2.Equals(15625));
-            long exp3 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(100, GrowthRate.MEDIUM_FAST);
-            Assert.IsTrue(exp3.Equals(1000000));
+            long exp1 = growthRateObject.Calculate(5);
+            Assert.AreEqual(exp1, 125);
+            long exp2 = growthRateObject.Calculate(25);
+            Assert.AreEqual(exp2, 15625);
+            long exp3 = growthRateObject.Calculate(100);
+            Assert.AreEqual(exp3, 1000000);
         }
 
         [Test]
         public void TestMediumSlowGrowthRate()
         {
-            long exp0 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(1, GrowthRate.MEDIUM_SLOW);
+            IGrowthRate growthRateObject = factory.GetGrowthRateCalculationObject(GrowthRate.MEDIUM_SLOW);
+            Assert.IsNotNull(growthRateObject);
+
+            long exp0 = growthRateObject.Calculate(1);
             Assert.AreEqual(0, exp0);
-            long exp1 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(5, GrowthRate.MEDIUM_SLOW);
-            Assert.IsTrue(exp1.Equals(135));
-            long exp2 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(25, GrowthRate.MEDIUM_SLOW);
-            Assert.IsTrue(exp2.Equals(11735));
-            long exp3 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(100, GrowthRate.MEDIUM_SLOW);
-            Assert.IsTrue(exp3.Equals(1059860));
+            long exp1 = growthRateObject.Calculate(5);
+            Assert.AreEqual(exp1, 135);
+            long exp2 = growthRateObject.Calculate(25);
+            Assert.AreEqual(exp2, 11735);
+            long exp3 = growthRateObject.Calculate(100);
+            Assert.AreEqual(exp3, 1059860);
         }
 
         [Test]
         public void TestFastGrowthRate()
         {
+            IGrowthRate growthRateObject = factory.GetGrowthRateCalculationObject(GrowthRate.FAST);
+            Assert.IsNotNull(growthRateObject);
 
-            long exp0 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(1, GrowthRate.FAST);
+            long exp0 = growthRateObject.Calculate(1);
             Assert.AreEqual(0, exp0);
-            long exp1 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(5, GrowthRate.FAST);
-            Assert.IsTrue(exp1.Equals(100));
-            long exp2 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(25, GrowthRate.FAST);
-            Assert.IsTrue(exp2.Equals(12500));
-            long exp3 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(100, GrowthRate.FAST);
-            Assert.IsTrue(exp3.Equals(800000));
+            long exp1 = growthRateObject.Calculate(5);
+            Assert.AreEqual(exp1, 100);
+            long exp2 = growthRateObject.Calculate(25);
+            Assert.AreEqual(exp2, 12500);
+            long exp3 = growthRateObject.Calculate(100);
+            Assert.AreEqual(exp3, 800000);
         }
 
         [Test]
         public void TestSlowGrowthRate()
         {
-            long exp0 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(1, GrowthRate.SLOW);
+            IGrowthRate growthRateObject = factory.GetGrowthRateCalculationObject(GrowthRate.SLOW);
+            Assert.IsNotNull(growthRateObject);
+
+            long exp0 = growthRateObject.Calculate(1);
             Assert.AreEqual(0, exp0);
-            long exp1 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(5, GrowthRate.SLOW);
-            Assert.IsTrue(exp1.Equals(156));
-            long exp2 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(25, GrowthRate.SLOW);
-            Assert.IsTrue(exp2.Equals(19531));
-            long exp3 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(100, GrowthRate.SLOW);
-            Assert.IsTrue(exp3.Equals(1250000));
+            long exp1 = growthRateObject.Calculate(5);
+            Assert.AreEqual(exp1, 156);    
+            long exp2 = growthRateObject.Calculate(25);
+            Assert.AreEqual(exp2, 19531);
+            long exp3 = growthRateObject.Calculate(100);
+            Assert.AreEqual(exp3, 1250000);
         }
 
 
@@ -73,23 +83,26 @@ namespace PokemonTest
         [Test]
         public void TestErraticGrowthRate()
         {
-            long exp0 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(1, GrowthRate.ERRATIC);
+            IGrowthRate growthRateObject = factory.GetGrowthRateCalculationObject(GrowthRate.ERRATIC);
+            Assert.IsNotNull(growthRateObject);
+
+            long exp0 = growthRateObject.Calculate(1);
             Assert.AreEqual(0, exp0);
-            long exp1 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(5, GrowthRate.ERRATIC);
+            long exp1 = growthRateObject.Calculate(5);
             Assert.AreEqual(237, exp1);
-            long exp2 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(25, GrowthRate.ERRATIC);
+            long exp2 = growthRateObject.Calculate(25);
             Assert.AreEqual(23437, exp2);
-            long exp3 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(50, GrowthRate.ERRATIC);
+            long exp3 = growthRateObject.Calculate(50);
             Assert.AreEqual(125000, exp3);
-            long exp4 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(51, GrowthRate.ERRATIC);
+            long exp4 = growthRateObject.Calculate(51);
             Assert.AreEqual(131324, exp4);
-            long exp5 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(68, GrowthRate.ERRATIC);
+            long exp5 = growthRateObject.Calculate(68);
             Assert.AreEqual(257834, exp5);
-            long exp6 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(69, GrowthRate.ERRATIC);
+            long exp6 = growthRateObject.Calculate(69);
             Assert.AreEqual(267406, exp6);
-            long exp7 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(98, GrowthRate.ERRATIC);
+            long exp7 = growthRateObject.Calculate(98);
             Assert.AreEqual(583539, exp7);
-            long exp8 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(100, GrowthRate.ERRATIC);
+            long exp8 = growthRateObject.Calculate(100);
             Assert.AreEqual(600000 ,exp8);
         }
 
@@ -98,19 +111,22 @@ namespace PokemonTest
         [Test]
         public void TestFluctuatingGrowthRate()
         {
-            long exp0 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(1, GrowthRate.FLUCTUATING);
+            IGrowthRate growthRateObject = factory.GetGrowthRateCalculationObject(GrowthRate.FLUCTUATING);
+            Assert.IsNotNull(growthRateObject);
+
+            long exp0 = growthRateObject.Calculate(1);
             Assert.AreEqual(0, exp0);
-            long exp1 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(5, GrowthRate.FLUCTUATING);
+            long exp1 = growthRateObject.Calculate(5);
             Assert.AreEqual(65, exp1);
-            long exp2 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(15, GrowthRate.FLUCTUATING);
+            long exp2 = growthRateObject.Calculate(15);
             Assert.AreEqual(1957, exp2);
-            long exp3 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(16, GrowthRate.FLUCTUATING);
+            long exp3 = growthRateObject.Calculate(16);
             Assert.AreEqual(2457, exp3);
-            long exp4 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(36, GrowthRate.FLUCTUATING);
+            long exp4 = growthRateObject.Calculate(36);
             Assert.AreEqual(46656, exp4);
-            long exp5 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(37, GrowthRate.FLUCTUATING);
+            long exp5 = growthRateObject.Calculate(37);
             Assert.AreEqual(50653, exp5);
-            long exp6 = GrowthRateSingleton.GetInstance().CalculateExperienceAtLevel(100, GrowthRate.FLUCTUATING);
+            long exp6 = growthRateObject.Calculate(100);
             Assert.AreEqual(1640000, exp6);
         }
     }
