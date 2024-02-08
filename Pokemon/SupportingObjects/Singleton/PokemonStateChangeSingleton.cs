@@ -1,6 +1,6 @@
 ﻿using Pokemon.Types.Subtype;
 
-namespace Pokemon.Singleton
+namespace Pokemon.SupportingObjects.Singleton
 {
     public class PokemonStateChangeSingleton
     {

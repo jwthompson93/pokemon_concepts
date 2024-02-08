@@ -1,10 +1,5 @@
-﻿using Pokemon.Singleton;
+﻿using Pokemon.SupportingObjects.Singleton;
 using Pokemon.Types.Subtype;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonTest
 {

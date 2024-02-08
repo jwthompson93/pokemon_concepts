@@ -1,6 +1,6 @@
-﻿using Pokemon.Factory.GrowthRate;
+﻿using Pokemon.SupportingObjects.Factory.GrowthRate.Interfaces;
 
-namespace Pokemon.Factory
+namespace Pokemon.SupportingObjects.Factory.GrowthRate
 {
     public class GrowthRateFactory
     {

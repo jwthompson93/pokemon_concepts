@@ -1,4 +1,4 @@
-﻿namespace Pokemon.Factory.GrowthRate
+﻿namespace Pokemon.SupportingObjects.Factory.GrowthRate.Interfaces
 {
     internal class MediumFastGrowthRate : IGrowthRate
     {

@@ -1,6 +1,6 @@
-﻿using Pokemon.Enums;
-using Pokemon.Factory;
-using Pokemon.Factory.GrowthRate;
+﻿using Pokemon.SupportingObjects.Enums;
+using Pokemon.SupportingObjects.Factory.GrowthRate;
+using Pokemon.SupportingObjects.Factory.GrowthRate.Interfaces;
 
 namespace PokemonTest
 {

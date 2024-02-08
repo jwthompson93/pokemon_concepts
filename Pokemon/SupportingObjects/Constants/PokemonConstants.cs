@@ -1,8 +1,8 @@
-﻿using Pokemon.Enums;
+﻿using Pokemon.SupportingObjects.Enums;
+using Pokemon.SupportingObjects.Struct;
 using Pokemon.Types;
-using Pokemon.Struct;
 
-namespace Pokemon.Constants
+namespace Pokemon.SupportingObjects.Constants
 {
     public class PokemonConstants
     {

@@ -1,6 +1,6 @@
-﻿using Pokemon.Constants;
-using Pokemon.Enums;
-using Pokemon.Struct;
+﻿using Pokemon.SupportingObjects.Constants;
+using Pokemon.SupportingObjects.Enums;
+using Pokemon.SupportingObjects.Struct;
 
 namespace Pokemon.Types
 {

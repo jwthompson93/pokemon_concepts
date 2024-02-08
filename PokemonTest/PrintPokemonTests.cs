@@ -1,4 +1,4 @@
-using Pokemon.Constants;
+using Pokemon.SupportingObjects.Constants;
 using Pokemon.Types;
 using Pokemon.Types.Subtype;
 using System.Text.Json;

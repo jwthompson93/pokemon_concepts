@@ -1,4 +1,4 @@
-﻿namespace Pokemon.Enums
+﻿namespace Pokemon.SupportingObjects.Enums
 {
     public enum GrowthRate
     {

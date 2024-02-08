@@ -1,4 +1,4 @@
-﻿namespace Pokemon.Factory.GrowthRate
+﻿namespace Pokemon.SupportingObjects.Factory.GrowthRate.Interfaces
 {
     public abstract class IGrowthRate
     {

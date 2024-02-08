@@ -1,4 +1,4 @@
-﻿namespace Pokemon.Struct
+﻿namespace Pokemon.SupportingObjects.Struct
 {
     public struct Stats
     {

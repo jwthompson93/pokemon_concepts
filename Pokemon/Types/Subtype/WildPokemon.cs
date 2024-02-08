@@ -1,6 +1,6 @@
-﻿using Pokemon.Singleton;
-using Pokemon.Enums;
-using Pokemon.Struct;
+﻿using Pokemon.SupportingObjects.Enums;
+using Pokemon.SupportingObjects.Singleton;
+using Pokemon.SupportingObjects.Struct;
 
 namespace Pokemon.Types.Subtype
 {
